@@ -1,4 +1,14 @@
 GET     http://localhost:3000/usuarios
 
 ###
-GET   http://localhost:3000/usuarios/abc   
+GET   http://localhost:3000/usuarios/5
+
+###
+POST  http://localhost:3000/usuarios/
+Content-Type: application/json
+
+{
+    "nombre": "Mayra",
+    "apellido": "Vicente",
+    "email": "may@gmail.com"
+}
