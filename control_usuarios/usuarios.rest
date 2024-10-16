@@ -1,14 +1,110 @@
-GET     http://localhost:3000/usuarios
+@baseUrl = http://localhost:3000
 
-###
-GET   http://localhost:3000/usuarios/5
+### Obtener todos los usuarios
+GET {{baseUrl}}/usuarios
 
-###
-POST  http://localhost:3000/usuarios/
+### Obtener un usuario específico (existente)
+GET {{baseUrl}}/usuarios/1
+
+### Obtener un usuario específico (no existente)
+GET {{baseUrl}}/usuarios/5
+
+### Crear un nuevo usuario
+POST {{baseUrl}}/usuarios
 Content-Type: application/json
 
 {
     "nombre": "Mayra",
     "apellido": "Vicente",
     "email": "may@gmail.com"
+}
+
+### Intentar crear un usuario con datos incompletos
+POST {{baseUrl}}/usuarios
+Content-Type: application/json
+
+{
+    "nombre": "Incompleto",
+    "apellido": "Datos"
+}
+
+### Intentar crear un usuario con email duplicado
+POST {{baseUrl}}/usuarios
+Content-Type: application/json
+
+{
+    "nombre": "Duplicado",
+    "apellido": "Email",
+    "email": "may@gmail.com"
+}
+
+### Actualizar un usuario existente (PUT)
+PUT {{baseUrl}}/usuarios/2
+Content-Type: application/json
+
+{
+    "nombre": "Yuridia",
+    "apellido": "Agustin",
+    "email": "yuriagus@gmail.com"
+}
+
+### Intentar actualizar un usuario con datos incompletos (PUT)
+PUT {{baseUrl}}/usuarios/1
+Content-Type: application/json
+
+{
+    "nombre": "Incompleto",
+    "apellido": "Datos"
+}
+
+### Intentar actualizar un usuario que no existe (PUT)
+PUT {{baseUrl}}/usuarios/999
+Content-Type: application/json
+
+{
+    "nombre": "No",
+    "apellido": "Existe",
+    "email": "noexiste@example.com"
+}
+
+### Intentar actualizar un usuario con un email ya existente (PUT)
+PUT {{baseUrl}}/usuarios/1
+Content-Type: application/json
+
+{
+    "nombre": "Juan",
+    "apellido": "Perez",
+    "email": "yuriagus@gmail.com"
+}
+
+### Actualizar parcialmente un usuario (PATCH)
+PATCH {{baseUrl}}/usuarios/1
+Content-Type: application/json
+
+{
+    "nombre": "Juan Actualizado"
+}
+
+### Actualizar parcialmente un usuario con nuevo email (PATCH)
+PATCH {{baseUrl}}/usuarios/1
+Content-Type: application/json
+
+{
+    "email": "juan.actualizado@example.com"
+}
+
+### Intentar actualizar parcialmente un usuario con email duplicado (PATCH)
+PATCH {{baseUrl}}/usuarios/1
+Content-Type: application/json
+
+{
+    "email": "yuriagus@gmail.com"
+}
+
+### Intentar actualizar parcialmente un usuario que no existe (PATCH)
+PATCH {{baseUrl}}/usuarios/999
+Content-Type: application/json
+
+{
+    "nombre": "No Existe"
 }
