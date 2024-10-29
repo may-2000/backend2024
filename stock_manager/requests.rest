@@ -1,1 +1,17 @@
 GET http://localhost:3000/users
+
+###
+GET http://localhost:3000/users/1
+
+###
+
+POST http://localhost:3000/users
+Content-Type: application/json
+{
+  "name": "Homer j. Simpson"
+}
+
+###
+
+DELETE http://localhost:3000/user/2
+
