@@ -7,10 +7,20 @@ GET http://localhost:3000/users/1
 
 POST http://localhost:3000/users
 Content-Type: application/json
-{
-  "name": "Homer j. Simpson"
-}
 
+{
+  "username": " batman",
+  "password": "batimobile",
+  "email": "batman@example.com"
+}
+###
+
+PUT http://localhost:3000/users/asd
+Content-Type: application/json
+{
+  "username": "superman",
+  "email": "superman@example.com"
+}
 ###
 
 DELETE http://localhost:3000/user/2
