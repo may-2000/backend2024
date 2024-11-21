@@ -1,12 +1,19 @@
-const {Router} = require('express');
-const {getAll, getById, createUser, updateUser, deleteUser} = require('../controllers/usersc');
+const{Router}=require('express');
+const { getAllUsers, getUserById, createUser,loginUser, updateUser, deleteUser } = require('../controllers/users');
 
-const router = Router();
+//anterior : const{getAll, getById}=require('../controllers/users');
 
-router.get('/', getAll);
-router.get('/:id', getById);
-router.post('/', createUser,);
-router.put('/:id',updateUser );
+const router=Router();
+
+router.get('/',getAllUsers);
+
+router.get('/:id',getUserById);
+
+//tarea
+router.post('/', createUser);
+router.post('/login', loginUser);
+router.put('/:id', updateUser);
 router.delete('/:id', deleteUser);
 
-module.exports = router;
+
+module.exports=router;

@@ -1,31 +1,41 @@
-const express = require('express');
-const usersRoutes = require('./routes/users');
-const app = express();
+const express=require("express");
+const usersRoutes=require('./routes/users');
 
-class Server {
-    constructor() {
-        this.app = express();
-        this.port = 3000;
+//staff
+const staffRoutes = require('./routes/staff');
 
-        this.app.use(express.json());
-
-        this.middlewares();
+class Server{
+    constructor (){
+        this.app=express();
+        this.port=3000;
+        this. middlewares();
+        //this.app.use(express.json()); //Metodo express, es un middleware
         this.routes();
     }
 
-    middlewares() {
+
+    middlewares(){
         this.app.use(express.json());
     }
 
-    routes() {
+    /*routes (){
+        this.app.get("/", (req, res)=> {
+            res.send('Hello world!');
+        });
+    }*/
+
+    routes(){
         this.app.use('/users', usersRoutes);
+
+        //staff
+        this.app.use('/staff', staffRoutes);
     }
 
-    start() {
-        this.app.listen(this.port,()=>{
-            console.log('Server listening on port ' + this.port);
-        });
-    }
+start() {
+    this.app.listen(this.port, ()=>{
+        console.log('Server listening on port ' + this.port);
+    });
+}
 }
 
-module.exports = {Server};
+module.exports={Server};

@@ -1,17 +1,82 @@
-GET http://localhost:3000/users
+GET http://localhost:3000/users/
 
 ###
 GET http://localhost:3000/users/1
 
+//TAREA
 ###
-
-POST http://localhost:3000/users
+POST http://localhost:3000/users/
 Content-Type: application/json
+
 {
-  "name": "Homer j. Simpson"
+  "username": "Rosalia",
+  "password": "hola123456",
+  "email": "rosa@gmail.com"
+}
+
+
+###
+PUT http://localhost:3000/users/1
+Content-Type: application/json
+
+{
+  "username": "Lady"
 }
 
 ###
+POST http://localhost:3000/users/login
+Content-Type: application/json
 
-DELETE http://localhost:3000/user/2
+{
+  "username": "Rosalia",
+  "password": "hola123456"
+}
 
+
+
+
+
+
+
+###
+DELETE http://localhost:3000/users/2
+
+
+### Mostrar todo staff
+GET http://localhost:3000/staff
+
+### Mostrar staff por ID
+GET http://localhost:3000/staff/2
+
+### Agregar a staff
+POST http://localhost:3000/staff
+Content-Type: application/json
+
+{
+  "first_name": "Lucia",
+  "last_name": "Garcia",
+  "birth_date": "2003-01-17",
+  "gender": "F",
+  "phone_number": "2871078090",
+  "email": "luci@gmail.com",
+  "address": "loma alta",
+  "user_id": 1
+}
+
+### Actualizar staff
+PUT http://localhost:3000/staff/1
+Content-Type: application/json
+
+{
+  "first_name": "Maria",
+  "last_name": "Camacho",
+  "birth_date": "2017-09-17",
+  "gender": "F",
+  "phone_number": "2871000202",
+  "email": "mariam@gmail.com",
+  "address": "loma alta",
+  "user_id": 3
+}
+
+### Eliminar staff 
+DELETE http://localhost:3000/staff/3

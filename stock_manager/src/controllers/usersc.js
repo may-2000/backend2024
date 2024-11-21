@@ -1,31 +1,48 @@
 const{request, response}=require('express');
+const pool = require('./db/connection');
+const{usersQueries} = require('../models/users');
 
-const users=[
-    {id: 1, name: 'Max'},
-    {id: 2, name: 'Daniel'},
-    {id: 3, name: 'Agustin'},
-];
+//const users=[
+//    {id: 1, name: 'Max'},
+//    {id: 2, name: 'Daniel'},
+//  {id: 3, name: 'Agustin'},
+//];
+const getAllUsers= async (req=request, res=response)=>{
+  let conn;
+  try{
+    conn = await pool.getConnection();
+    const users = await conn.query(usersQueries.getAll);
 
-const getAll=(req=request, res=response)=>{
+   // console.log({users});
     res.send(users);
+  }catch(error){
+    res.status(500).send(error);
+    return;
+  }finally{
+  if (conn) conn.end();
+  }
 }
 
-const getById=(req=request, res=response)=>{
+const getUserById= async (req=request, res=response)=>{
     const {id}=req.params;
 
     if(isNaN(id)){
         res.status(400).send('Invalid ID');
         return;
       }
+try{
+  const user = conn.query(usersQueries.getById, [+id]);
 
-      const user  = users.find(user => user.id === +id); 
-
-      if(!user){
-        res.status(404).send('User not found');
-        return;
-      }
-
-      res.send(user);
+  if(!user){
+    res.status(404).send('User not found');
+    return;
+  }
+  res.send(user);
+}catch(error){
+  res.status(500).send(error);
+}finally {
+    if (conn) conn.end();
+  }
 
 }
 
@@ -94,4 +111,4 @@ const deleteUser = (req = request, res = response) => {
   res.send('User deleted');
 };
 
-module.exports = { getAll, getById, createUser, updateUser, deleteUser };
+module.exports = { getAllUsers, getUserById, createUser, updateUser, deleteUser };
