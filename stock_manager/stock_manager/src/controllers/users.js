@@ -5,8 +5,8 @@ const { usersQueries } = require('../models/users');
 
 const saltRounds=10;
 /*const users=[
-    {id: 1, name: 'lady'},
-    {id: 2, name: 'Sthefany'},
+    {id: 1, name: 'Max'},
+    {id: 2, name: 'Danilo'},
     {id: 3, name: 'Agustin'},
 ];*/
 
