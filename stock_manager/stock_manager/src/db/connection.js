@@ -5,7 +5,7 @@ const config={
     user: 'mariadb_user',
     password: 'abc123',
     database: 'stockdb',
-    port: '3306',
+    port: '3308',
     connectionLimit:10
 
 

@@ -3,10 +3,14 @@ const { getAllStaff, getStaffById, createStaff, updateStaff, deleteStaff } = req
 
 const router = Router();
 
-router.get('/', getAllStaff);
-router.get('/:id', getStaffById);
-router.post('/', createStaff);
-router.put('/:id', updateStaff);
-router.delete('/:id', deleteStaff);
+router.get('/', getAllStaff); // Obtener todos los usuarios
+router.get('/:id', getStaffById); // Obtener un usuario por ID
+router.post('/', createStaff); // Crear un nuevo usuario
 
-module.exports = router; 
+// Actualizar un usuario existente parcialmente
+router.put('/:id', updateStaff); 
+
+// Eliminar un usuario existente
+router.delete('/:id', deleteStaff); // Eliminar un usuario
+
+module.exports = router;
