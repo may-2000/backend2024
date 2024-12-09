@@ -6,7 +6,7 @@ const pokemonSeeder = require('./seeders/pokemon');
 class Server {
     constructor() {
         this.app = express();
-        this.port = 3000;
+        this.port = 3000
 
         this.middleware();
         this.routes();
@@ -21,8 +21,8 @@ class Server {
         this.app.use('/pokemons', pokemonsRoutes);
     }
 
-    seeder () {
-    pokemonSeeder();
+    seeder(){
+        pokemonSeeder();
     }
 
     start(){
