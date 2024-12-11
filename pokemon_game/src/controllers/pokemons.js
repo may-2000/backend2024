@@ -48,7 +48,9 @@ const  get3RandomPokemons= async (req = request, res = response) =>{
     
     let conn;
     try{
-
+    conn = await pool.getConnection();
+    const pokemons = await conn.query(pokemonsModel.get3Random);
+    res.send(pokemons);
     }catch(error){
         res.status(500).json(error);
         return;

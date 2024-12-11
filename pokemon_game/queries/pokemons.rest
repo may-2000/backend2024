@@ -1,6 +1,9 @@
 GET http://localhost:3000/pokemons
 
 ###
+GET http://localhost:3000/pokemons/play
+
+###
 GET http://localhost:3000/pokemons/1
 
 ###
