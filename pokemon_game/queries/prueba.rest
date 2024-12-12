@@ -1,17 +1,20 @@
 GET http://localhost:3000/users
-
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzM0MDI0NTg5LCJleHAiOjE3MzQwMjQ4ODl9.3Hh3ABpbKITBdzFgOCTZ3AKaxAMV7TTEIzt1yWiX51s
 ###
 GET http://localhost:3000/users/1
-
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzM0MDIxNTg2LCJleHAiOjE3MzQwMjE4ODZ9.2aCLvPgEx4OPCOOFSi5AgDoO2hrzcKM3BCs80OFcEws
 ###
 POST http://localhost:3000/users
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaXNfYWRtaW4iOjEsImlhdCI6MTczNDAyNTQyMSwiZXhwIjoxNzM0MDI1NzIxfQ.nDQMjEouMfK5LvSD2LnDS--nDomQPJc4z9dadPr7n1c
 
 {
-    "first_name": "Mayra",
-    "last_name": "Doe",
-    "email": "mayra@gmail.com",
-    "password": "MyPassword"
+    "first_name": "Barry",
+    "last_name": "Allen",
+    "email": "flash@ligadelajusticia.com",
+    "password": "speed"
 }
 
 ###

@@ -14,8 +14,9 @@ const verifyToken =  (req, res, next) => {
 
 try{
 const playload = jwt.verify(token, secret);
+console.log(playload);
 req.id = playload.id;
-req.isAdmin = playload.isAdmin;
+req.is_admin = playload.is_admin;
 next();
 }catch (error){
     return res.status(403).send({message: "Token not valid"})

@@ -10,6 +10,7 @@ const secret = process.env.SECRET;
 const SALT_ROUNDS = 10;
 
 const userProtected = async (req = request, res = response) =>{
+    console.log({req})
     res.send({message: "You have access!!"});
 }
 
@@ -38,6 +39,19 @@ const createUser = async (req = request, res = response) =>{
         email,
         password
     } = req.body;
+
+    const {id, is_admin} = req;
+console.log({id, is_admin});
+
+if (!id || is_admin=== undefined) {
+    res.status(400).send({message: 'Missing required fields'});
+    return;
+}
+
+if(is_admin !== 1){
+    res.status(400).send({message: 'Yuo do not have enough privileges'});
+    return;
+}
 
     if (!first_name || !last_name || !email || !password){
             res.status(400).send({mensage: 'Missing required fields'});
